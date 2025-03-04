@@ -25,11 +25,12 @@ dependencyResolutionManagement {
     }
 }
 
+include(":config")
+
 include(":core")
 
 include(":app:android")
 
-include(":sdk:capture")
-
 include(":tools:mockery")
 include("app")
+include("config")
