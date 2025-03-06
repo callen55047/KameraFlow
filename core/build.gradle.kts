@@ -1,10 +1,12 @@
-
+import environment.ModuleArtifacts
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.mokkery)
+
+    id("com.egan.plugin.config")
 }
 
 version = "1.1.1"
@@ -14,27 +16,9 @@ val moduleArtifact = ModuleArtifacts.Core
 
 kotlin {
 
-    AndroidBuil
-    androidConvention()
-    iosConvention(moduleArtifact)
-    webConvention(
-        moduleArtifact,
-        WebConventionConfiguration(
-            releaseVersion = version.toString(),
-            sdkName = moduleArtifact.webNPMName,
-        ),
-    )
-    js {
-        browser {
-            /*
-            testTask {
-                useKarma {
-                    //useChrome()
-                    useChromeHeadless()
-                }
-            }*/
-        }
-    }
+    AndroidBuild()
+    IosBuild(moduleArtifact)
+    WebBuild(moduleArtifact)
 
     sourceSets {
         val commonMain by getting {

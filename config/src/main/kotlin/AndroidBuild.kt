@@ -10,4 +10,8 @@ fun KotlinMultiplatformExtension.AndroidBuild() {
             jvmTarget.set(JvmTarget.JVM_1_8)
         }
     }
+
+    with(this.project.tasks) {
+        // TODO: complete build tasks
+    }
 }

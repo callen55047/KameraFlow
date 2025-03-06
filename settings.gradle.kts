@@ -25,7 +25,7 @@ dependencyResolutionManagement {
     }
 }
 
-include(":config")
+includeBuild("./config")
 
 include(":core")
 
@@ -33,4 +33,3 @@ include(":app:android")
 
 include(":tools:mockery")
 include("app")
-include("config")

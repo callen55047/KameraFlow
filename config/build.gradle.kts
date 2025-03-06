@@ -17,3 +17,12 @@ dependencies {
 }
 
 kotlinDslPluginOptions {}
+
+gradlePlugin {
+    plugins {
+        register("egan-convention") {
+            id = "com.egan.plugin.config"
+            implementationClass = "MultiplatformConvention"
+        }
+    }
+}
