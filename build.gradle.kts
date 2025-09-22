@@ -7,3 +7,20 @@ plugins {
     alias(libs.plugins.skie) apply false
     alias(libs.plugins.grease) apply false
 }
+
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        classpath(libs.moko.resources.generator)
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}

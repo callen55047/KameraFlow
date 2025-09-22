@@ -1,3 +1,4 @@
+import dev.icerock.gradle.MRVisibility
 import environment.ModuleArtifacts
 
 plugins {
@@ -5,6 +6,9 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.mokkery)
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.moko.resources)
 
     id("com.egan.plugin.config")
 }
@@ -32,6 +36,13 @@ kotlin {
                 implementation(libs.ktor.logging)
                 implementation(libs.ktor.serialization.json)
                 implementation(libs.ktor.content.negotiation)
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                implementation(compose.ui)
+                implementation(compose.components.resources)
+                implementation(compose.components.uiToolingPreview)
+                implementation(libs.compose.lifecycle.viewmodel)
             }
         }
 
@@ -50,14 +61,18 @@ kotlin {
             dependencies {
                 implementation(libs.ktor.client.android)
                 implementation(libs.android.initializer)
+                implementation(compose.preview)
+                implementation(libs.androidx.activity.compose)
             }
         }
 
         val androidUnitTest by getting {
             dependencies {
                 implementation(libs.android.test.core)
+                implementation(libs.android.test.junit)
                 implementation(libs.android.test.espresso)
                 implementation(libs.android.test.robolectric)
+                implementation(libs.android.test.mockito.android)
             }
         }
 
@@ -92,4 +107,16 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+}
+
+dependencies {
+    debugImplementation(compose.uiTooling)
+    commonMainApi(libs.moko.resources)
+    commonMainApi(libs.moko.resources.compose)
+    commonTestImplementation(libs.moko.resources.test)
+}
+
+multiplatformResources {
+    resourcesPackage.set("com.egan.core")
+    resourcesVisibility.set(MRVisibility.Internal)
 }

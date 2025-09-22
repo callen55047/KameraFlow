@@ -22,6 +22,12 @@ i18n4k = "0.9.0"
 test-core = "4.12.1"
 robolecric = "1.6.1"
 espresso = "3.6.1"
+compose-multiplatform = "1.7.3"
+compose-lifecycle = "2.8.2"
+androidx-activityCompose = "1.9.3"
+moko-resources = "0.24.5"
+mockito = "5.17.0"
+junit = "4.13.2"
 
 [libraries]
 # Kotlin
@@ -56,10 +62,21 @@ android-initializer = { group = "androidx.startup", name = "startup-runtime", ve
 android-test-core = { group = "org.robolectric", name = "robolectric", version.ref = "test-core" }
 android-test-robolectric = { group = "androidx.test", name = "core", version.ref = "robolecric" }
 android-test-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+compose-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "compose-lifecycle" }
+
+android-test-junit = { group = "junit", name = "junit", version.ref = "junit" }
+android-test-mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+android-test-mockito-android = { group = "org.mockito", name = "mockito-android", version.ref = "mockito" }
 
 # Web
 kotlinx-html = { group = "org.jetbrains.kotlinx", name = "kotlinx-html", version.ref = "kotlinx-html" }
 
+# Resources
+moko-resources = { module = "dev.icerock.moko:resources", version.ref = "moko-resources" }
+moko-resources-generator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko-resources" }
+moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources" }
+moko-resources-test = { module = "dev.icerock.moko:resources-test", version.ref = "moko-resources" }
 
 # Test
 test-kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "test-coroutines" }
@@ -72,6 +89,9 @@ kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", versio
 vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }
 skie = { id = "co.touchlab.skie", version.ref = "skie" }
 grease = { id = "io.deepmedia.tools.grease", version.ref = "grease" }
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+moko-resources = { id = "dev.icerock.mobile.multiplatform-resources"}
 
 mokkery = { id = "dev.mokkery", version.ref = "mokkery" }
 [bundles]

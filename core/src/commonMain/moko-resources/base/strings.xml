@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+  <string name="WELCOME_MESSAGE">Welcome to Kamera Flow</string>
+  <string name="APP_DESCRIPTION">We will be scanning images from the device camera.</string>
+  <string name="BUTTON_CONTINUE">Continue</string>
+</resources>
