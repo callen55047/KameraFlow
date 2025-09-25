@@ -1,4 +1,3 @@
-
 pluginManagement {
     repositories {
         google()
@@ -28,8 +27,7 @@ dependencyResolutionManagement {
 includeBuild("./config")
 
 include(":core")
-
 include(":app:android")
-
 include(":tools:mockery")
-include("app")
+include(":app")
+include(":webWorker")
